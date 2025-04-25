@@ -19,4 +19,9 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
 
+
+
 require __DIR__.'/auth.php';
+require __DIR__.'/admin.php';
+require __DIR__.'/owner.php';
+require __DIR__.'/client.php';

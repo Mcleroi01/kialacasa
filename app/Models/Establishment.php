@@ -2,13 +2,24 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Establishment extends Model
 {
      protected $fillable = [
-        'user_id', 'name', 'description', 'phone', 'email', 'address', 'latitude', 'longitude'
+        '_id','user_id', 'name', 'description', 'phone', 'email', 'address', 'latitude', 'longitude'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->_id = (string) Str::uuid();
+        });
+    }
 
     public function user()
     {

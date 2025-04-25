@@ -57,4 +57,14 @@ class User extends Authenticatable
             ->map(fn (string $name) => Str::of($name)->substr(0, 1))
             ->implode('');
     }
+
+    public function client()
+    {
+        return $this->hasOne(Clients::class);
+    }
+
+    public function establishments()
+    {
+        return $this->hasMany(Establishment::class);
+    }
 }
